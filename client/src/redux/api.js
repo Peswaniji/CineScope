@@ -35,8 +35,23 @@ backendApi.interceptors.request.use((config) => {
 
 export const tmdbApi = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
-  timeout: 12000,
+  timeout: 30000,
   params: {
     api_key: import.meta.env.VITE_TMDB_API_KEY,
   },
 });
+
+tmdbApi.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const originalRequest = error.config || {};
+    const isTimeout = error.code === 'ECONNABORTED' || String(error.message || '').toLowerCase().includes('timeout');
+
+    if (isTimeout && !originalRequest.__retried) {
+      originalRequest.__retried = true;
+      return tmdbApi.request(originalRequest);
+    }
+
+    return Promise.reject(error);
+  }
+);
