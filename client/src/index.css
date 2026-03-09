@@ -4,6 +4,10 @@
   color-scheme: dark;
 }
 
+:root.theme-light {
+  color-scheme: light;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -17,6 +21,15 @@ body {
     radial-gradient(circle at 18% 20%, rgba(34, 211, 238, 0.18), transparent 35%),
     radial-gradient(circle at 82% 0%, rgba(249, 115, 22, 0.16), transparent 30%),
     #020617;
+  background-attachment: fixed;
+}
+
+:root.theme-light body {
+  color: #0f172a;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(14, 116, 144, 0.11), transparent 35%),
+    radial-gradient(circle at 82% 0%, rgba(234, 88, 12, 0.1), transparent 30%),
+    #f1f5f9;
   background-attachment: fixed;
 }
 
@@ -40,4 +53,68 @@ body {
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(34, 211, 238, 0.9);
+}
+
+:root.theme-light .text-white {
+  color: #0f172a !important;
+}
+
+:root.theme-light .text-slate-100 {
+  color: #0f172a !important;
+}
+
+:root.theme-light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+:root.theme-light .text-slate-300 {
+  color: #334155 !important;
+}
+
+:root.theme-light .text-slate-400 {
+  color: #475569 !important;
+}
+
+:root.theme-light .bg-slate-950,
+:root.theme-light .bg-slate-900,
+:root.theme-light .bg-slate-900\/95,
+:root.theme-light .bg-slate-900\/80,
+:root.theme-light .bg-slate-950\/60,
+:root.theme-light .bg-slate-900\/50 {
+  background-color: rgba(248, 250, 252, 0.96) !important;
+}
+
+:root.theme-light .border-slate-800,
+:root.theme-light .border-slate-700,
+:root.theme-light .border-slate-600 {
+  border-color: #cbd5e1 !important;
+}
+
+:root.theme-light .from-slate-950 {
+  --tw-gradient-from: #e2e8f0 var(--tw-gradient-from-position) !important;
+}
+
+:root.theme-light .via-slate-950\/80 {
+  --tw-gradient-via: rgba(226, 232, 240, 0.85) var(--tw-gradient-via-position) !important;
+}
+
+:root.theme-light .to-slate-950\/40,
+:root.theme-light .to-slate-950\/45 {
+  --tw-gradient-to: rgba(226, 232, 240, 0.3) var(--tw-gradient-to-position) !important;
+}
+
+:root.theme-light .from-black\/70,
+:root.theme-light .from-black\/80 {
+  --tw-gradient-from: rgba(226, 232, 240, 0.88) var(--tw-gradient-from-position) !important;
+}
+
+:root.theme-light .to-transparent {
+  --tw-gradient-to: transparent var(--tw-gradient-to-position) !important;
+}
+
+:root.theme-light .bg-black\/85,
+:root.theme-light .bg-black\/90,
+:root.theme-light .bg-black\/70,
+:root.theme-light .bg-black {
+  background-color: rgba(226, 232, 240, 0.9) !important;
 }

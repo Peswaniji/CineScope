@@ -5,8 +5,9 @@ import { logout } from '../redux/slices/authSlice.js';
 import { APP_NAME } from '../utils/constants.js';
 import { backendApi } from '../redux/api.js';
 import { toUserMessage } from '../utils/userMessage.js';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
 
-const Navbar = () => {
+const Navbar = ({ theme, onToggleTheme }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const dispatch = useDispatch();
@@ -62,6 +63,16 @@ const Navbar = () => {
         </Link>
 
         <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+          <button
+            onClick={onToggleTheme}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-600 text-slate-200 hover:border-cyan-400 hover:text-cyan-300 transition"
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            {theme === 'dark' ? <MdLightMode className="text-base" /> : <MdDarkMode className="text-base" />}
+            <span className="text-xs font-semibold">{theme === 'dark' ? 'Light' : 'Dark'}</span>
+          </button>
+
           <NavLink to="/" className={linkClass} end>
             Home
           </NavLink>
